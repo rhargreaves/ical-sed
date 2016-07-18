@@ -16,6 +16,7 @@ describe('Site', function() {
 		it('should return ical specified on query string', function(done) {
 			request(app)
 				.get('/ical')
+				.query({ url: 'https://raw.githubusercontent.com/rhargreaves/ical-sed/master/test/data/one_event.ics' })
 				.expect(200)
 				.expect('Content-Type', 'text/calendar')
 				.end(function(err,res) {

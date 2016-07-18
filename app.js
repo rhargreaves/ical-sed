@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/ical', (req, res) => {
-	var icalUrl = 'https://raw.githubusercontent.com/rhargreaves/ical-sed/master/test/data/one_event.ics';
+	var icalUrl = req.query.url;
 	transform.transformCalendar(icalUrl, function(err, strCal) {
 		res.setHeader('content-type', 'text/calendar');
 		res.send(strCal);
