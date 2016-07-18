@@ -17,6 +17,7 @@ describe('Site', function() {
 			request(app)
 				.get('/ical')
 				.expect(200)
+				.expect('Content-Type', 'text/calendar')
 				.end(function(err,res) {
 					res.text.should.startWith('BEGIN:VCALENDAR');
 					done();
