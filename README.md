@@ -17,4 +17,4 @@ $ npm test
 
 # Deployment
 
-Current deployed to https://ical-sed-jxpjtovrlf.now.sh/
+Current deployed to https://ical-sed.herokuapp.com/
