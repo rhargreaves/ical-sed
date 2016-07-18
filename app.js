@@ -4,6 +4,7 @@ const app = exports.app = require('express')();
 const path = require('path');
 const fs = require('fs');
 const request = require('request');
+const ICalParser = require('cozy-ical').ICalParser;
 
 app.get('/', (req, res) => {
 	res.send('Welcome');
@@ -16,10 +17,14 @@ app.get('/ical', (req, res) => {
 			console.log(error);
 			return;
 		}
-		res.send(body);
-	});
 
-	res.sendFile(path.join(__dirname, 'test/data/one_event.ics'));
+		var parser = new ICalParser();
+		parser.parseString(body, function(err, cal) {
+			var strCal = cal.toString();
+			res.setHeader('content-type', 'text/calendar');
+			res.send(strCal);
+		});
+	});
 });
 
 app.listen(port);
