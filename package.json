@@ -1,0 +1,23 @@
+{
+  "name": "ical-sed",
+  "version": "1.0.0",
+  "description": "Web service providing event filtering for iCalendar feeds",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhargreaves/ical-sed.git"
+  },
+  "keywords": [
+    "ical",
+    "filter"
+  ],
+  "author": "Robert Hargreaves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhargreaves/ical-sed/issues"
+  },
+  "homepage": "https://github.com/rhargreaves/ical-sed#readme"
+}
