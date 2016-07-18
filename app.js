@@ -1,4 +1,8 @@
-const app = require('express')();
+
+
+const app = exports.app = require('express')();
+
+
 app.get('/', (req, res) => {
     res.send('Welcome');
 });
