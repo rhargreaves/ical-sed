@@ -1,4 +1,4 @@
-# ical-sed
+# ical-sed [![build status](https://travis-ci.org/rhargreaves/ical-sed.svg)](https://travis-ci.org/rhargreaves/ical-sed)
 sed for iCalendar feeds
 
 # Getting Started
