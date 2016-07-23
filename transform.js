@@ -8,9 +8,14 @@ function filter(comp, containing) {
 	vevents.forEach(vevent => {
 		var event = new ICAL.Event(vevent);
 		var summary = event.summary;
-		if(summary.toLowerCase().indexOf(containing.toLowerCase()) == -1) {
-			comp.removeSubcomponent(vevent);
+
+		var containArray = containing.split(',');
+		for(i = 0; i < containArray.length; i++) {
+			if(summary.toLowerCase().indexOf(containArray[i].toLowerCase()) > -1) {
+				return;
+			}
 		}
+		comp.removeSubcomponent(vevent);
 	});
 }
 
