@@ -9,7 +9,8 @@ app.get('/', (req, res) => {
 
 app.get('/ical', (req, res) => {
 	var icalUrl = req.query.url;
-	transform.transformCalendar(icalUrl, function(err, strCal) {
+	var containing = req.query.containing;
+	transform.transformCalendar(icalUrl, containing, function(err, strCal) {
 		res.setHeader('content-type', 'text/calendar');
 		res.send(strCal);
 	});

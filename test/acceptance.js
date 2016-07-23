@@ -24,6 +24,19 @@ describe('Site', function() {
 					done();
 				});
 		});
+
+		it('should return single event containing specified text', function(done) {
+			request(app)
+				.get('/ical')
+				.query({ url: 'https://raw.githubusercontent.com/rhargreaves/ical-sed/master/test/data/two_events.ics', containing: 'foo'})
+				.expect(200)
+				.expect('Content-Type', 'text/calendar')
+				.end(function(err,res) {
+					res.text.should.containEql('SUMMARY:Foo Event');
+					res.text.should.not.containEql('SUMMARY:Bar Event');
+					done();
+				});
+		});
 	});
 });
 
