@@ -1,10 +1,14 @@
-
-const port = process.env.PORT || 3000;
-const app = exports.app = require('express')();
+const express = require('express');
+const expressHbs = require('express-handlebars');
 const transform = require('./transform');
+const app = exports.app = express();
+const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-	res.send('Welcome');
+app.engine('handlebars', expressHbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.get('/', function (req, res) {
+    res.render('home');
 });
 
 app.get('/ical', (req, res) => {
@@ -15,5 +19,7 @@ app.get('/ical', (req, res) => {
 		res.send(strCal);
 	});
 });
+
+app.use('/assets', express.static(__dirname + '/assets'));
 
 app.listen(port);

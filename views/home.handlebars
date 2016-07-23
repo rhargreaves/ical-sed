@@ -1,0 +1,22 @@
+<h1>iCalendar Stream EDitor (ical-sed)</h1>
+
+<div>
+
+	<ul>
+		<li><label for="source">Source Feed URL</label><input id="source" type="text" data-bind="value: source, valueUpdate: 'keyup'"></li>
+		<li><label for="terms">Whitelisted Terms</label>
+
+			<div id="terms" data-bind="foreach: terms" class="terms">
+				<div>
+					<label>Term</label> <input class="term" type="text" data-bind="value: $rawData, valueUpdate: 'keyup'">
+					<a href="#" data-bind="click: $parent.removeTerm">remove</a>
+				</div>
+			</div>
+			<button data-bind="click: addTerm">Add</button>				 
+
+		</li>
+		<li><label for="url">Output Feed URL</label><input id="url" class="url" readonly data-bind="value: url"></input></li>
+
+	</ul>
+
+</div>
