@@ -15,7 +15,7 @@
 			<button data-bind="click: addTerm">Add</button>				 
 
 		</li>
-		<li><label for="url">Output Feed URL</label><input id="url" class="url" readonly data-bind="value: url"></input></li>
+		<li><label for="url">Output Feed URL</label><a id="url" class="url" data-bind="attr: { href: url }, text: url"></a></li>
 
 	</ul>
 

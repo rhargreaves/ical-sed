@@ -7,7 +7,7 @@ function UiViewModel() {
 		var termsParam = self.terms().map(function(obj) {
 			return obj();
 		}).join(',');
-		return "/ical?url=" + self.source() + "&containing=" + termsParam;
+		return newUrl = window.location.origin + "/ical?url=" + self.source() + "&containing=" + termsParam;
 	});
 	self.addTerm = function() {
 		self.terms.push(ko.observable(""));
