@@ -5,9 +5,12 @@ function UiViewModel() {
 	self.terms = ko.observableArray([ko.observable("")]);
 	self.url =ko.computed(function() {
 		var termsParam = self.terms().map(function(obj) {
-			return obj();
+			return encodeURIComponent(obj());
 		}).join(',');
-		return newUrl = window.location.origin + "/ical?url=" + self.source() + "&containing=" + termsParam;
+		var url = self.source();
+		return newUrl = window.location.origin +
+			"/ical?url=" +
+			encodeURI(url) + "&containing=" + termsParam;
 	});
 	self.addTerm = function() {
 		self.terms.push(ko.observable(""));
