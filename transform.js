@@ -33,7 +33,6 @@ module.exports = {
 			filter(comp, containing);
 			var strCal = comp.toString();
 			callback(null, strCal);
-
 		});
 	},
 
