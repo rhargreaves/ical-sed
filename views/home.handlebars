@@ -26,9 +26,9 @@ Filter an iCal feed by specifying terms that should be present in the event name
 
 	<div class="form-group">
 		<label for="url">Filtered URL</label>
-		<a id="url" class="form-control" data-bind="attr: { href: url }, text: url"></a>
+		<a id="url" data-bind="attr: { href: url }, text: url"></a>
 	</div>
-	<button class="btn btn-primary" data-clipboard-target="#url">Copy</button>
+	<button type="button" class="btn btn-primary" data-clipboard-target="#url">Copy</button>
 
 </form>
 
